@@ -199,11 +199,11 @@
 						readMoreBtn.style.display = "inline-block";
 						readLessBtn.style.display = "none";
 						contentContainer.style.maxHeight = "500px"; 
-						scrollToTop();
+						scrollUp();
 					}
 				}
 		
-				function scrollToTop() {
+				function scrollUp() {
 					var sectionContainer = document.getElementById("sectionContainer");
 					sectionContainer.scrollIntoView({ behavior: "smooth" });
 				}
