@@ -52,24 +52,23 @@
 								<h7>Get To Know Me!</h7>
 							</header>
 							<div class="image main"><img src="images/OU Watercolor.png" alt="Watercolor of the Bizzel Library at the University of Oklahoma" /></div>
-							<h3 class="align-center">Hi! Thanks for taking a look at my Portfolio! Now, a little about me.</h3> 
-							<h5 id="short_version">Short Version</h5>
-							<input id="chbx" type="checkbox">
-							<p class="align-justify">I earned my Bachelor of Business Administration in Management Information Systems, where I discovered my passion for the creative and problem-solving aspects of business. I'm a dedicated and quick learner, eager to kickstart my career in a company that encourages continuous learning and growth.</p>
-							<div class="content">
-								<h5>Long Version</h5>
-								<p class="align-justify">I grew up in Broken Arrow, Oklahoma. In High Scool, I was unsure about my college path, but I knew three things.<br /> 1. I wanted to attend the University of Oklahoma, Boomer Sooner! <br/>2. I loved math and numbers (data) <br/>3. I loved Excel <br/> So because of those three things, I decided to go to OU and major in Accounting. You may be saying to yourself. "Accounting? But above you said you were an aspiring Data Analyst". Valid observations. Like many college students, I changed my field of study many times, and eventually, I settled on majoring in Management Information Systems(MIS). After I took my first MIS course, I discovered my love for the creative, problem-solving, and coding aspect of business. Most importantly, it was a combination of the three things above.</p>
-								<p>Throughout college, I juggled two jobs as a childcare worker and as a server/bartender. While these positions may not be technical in nature, they equipped me many honed skills that I will carry into my future career. These experiences have taught me how to be a great multitaker, organizer, and team player. They instilled in me the importance of customer satisfaction and how to maintain patience amidst challenging circumstances. I will always charish the memories, skills and friends I made during my time in these jobs.</p>
-								<p>A question I get a lot is, "What made you want to move out to California?" Well, my parents grew up in California, and growing up, I spent many vacations here visiting family. I always knew I wanted to move out to California. So with the support of loved ones, I figured right after college was the ideal time to make the move. And here I am, turning my childhood dream of living in California into reality!</p>
-								<!-- Also because my boyfriend was moving out to California for his job, so it worked out perfectly!<3 -->
+							<div id="sectionContainer">
 								
-								<label for="chbx">
-									↑ Show Me The Shorter Version ↑
-								</label>
+								<div id="contentContainer">
+									<h3 class="align-center">Hi! Thanks for taking a look at my Portfolio! Now, a little about me.</h3> <h5 id="short_version">Short Version</h5>
+									<p class="align-justify">I earned my Bachelor of Business Administration in Management Information Systems, where I discovered my passion for the creative and problem-solving aspects of business. I'm a dedicated and quick learner, eager to kickstart my career in a company that encourages continuous learning and growth.</p>
+									<div id="extraContent">
+										<h5>Long Version</h5>
+										<p class="align-justify">I grew up in Broken Arrow, Oklahoma. In High Scool, I was unsure about my college path, but I knew three things.<br /> 1. I wanted to attend the University of Oklahoma, Boomer Sooner! <br/>2. I loved math and numbers (data) <br/>3. I loved Excel <br/> So because of those three things, I decided to go to OU and major in Accounting. You may be saying to yourself. "Accounting? But above you said you were an aspiring Data Analyst". Valid observations. Like many college students, I changed my field of study many times, and eventually, I settled on majoring in Management Information Systems(MIS). After I took my first MIS course, I discovered my love for the creative, problem-solving, and coding aspect of business. Most importantly, it was a combination of the three things above.</p>
+										<p>Throughout college, I juggled two jobs as a childcare worker and as a server/bartender. While these positions may not be technical in nature, they equipped me many honed skills that I will carry into my future career. These experiences have taught me how to be a great multitaker, organizer, and team player. They instilled in me the importance of customer satisfaction and how to maintain patience amidst challenging circumstances. I will always charish the memories, skills and friends I made during my time in these jobs.</p>
+										<p>A question I get a lot is, "What made you want to move out to California?" Well, my parents grew up in California, and growing up, I spent many vacations here visiting family. I always knew I wanted to move out to California. So with the support of loved ones, I figured right after college was the ideal time to make the move. And here I am, turning my childhood dream of living in California into reality!</p>
+										<!-- Also because my boyfriend was moving out to California for his job, so it worked out perfectly!<3 -->
+									</div>
+								</div>
+						
+								<button id="readMoreBtn" onclick="toggleContent('readMore')">Read More</button>
+								<button id="readLessBtn" onclick="toggleContent('readLess')">Read Less</button>
 							</div>
-							<label for="chbx">
-								↓ Show Me The Longer Version ↓
-							</label>
 						</section>
 						<section class="post">
 							<header class="major">
@@ -182,5 +181,32 @@
 				  }
 				};
 			  </script>
+			  <script>
+				function toggleContent(action) {
+					var contentContainer = document.getElementById("contentContainer");
+					var extraContent = document.getElementById("extraContent");
+					var readMoreBtn = document.getElementById("readMoreBtn");
+					var readLessBtn = document.getElementById("readLessBtn");
+					var mainContent = document.getElementById("mainContent");
+		
+					if (action === 'readMore') {
+						extraContent.style.display = "block";
+						readMoreBtn.style.display = "none";
+						readLessBtn.style.display = "inline-block";
+						contentContainer.style.maxHeight = "none";
+					} else if (action === 'readLess') {
+						extraContent.style.display = "none";
+						readMoreBtn.style.display = "inline-block";
+						readLessBtn.style.display = "none";
+						contentContainer.style.maxHeight = "500px"; 
+						scrollToTop();
+					}
+				}
+		
+				function scrollToTop() {
+					var sectionContainer = document.getElementById("sectionContainer");
+					sectionContainer.scrollIntoView({ behavior: "smooth" });
+				}
+			</script>
 	</body>
 </html>
